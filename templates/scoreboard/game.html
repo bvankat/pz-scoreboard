@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Live scores and updates from Nebraska and Iowa high school sports - NEPrepZone.com</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+	<meta property="og:title" content="NE Prep Zone Live Scoreobard" />
+	<meta property="og:description" content="Live scores and updates from Nebraska and Iowa high school sports." />
+	<meta property="og:image" content="/media/scoreboard/pz-scoreboard.png" />
+	<meta property="og:url" content="http://dataomaha.com/scoreboard" />
+	<meta property="og:type" content="website" />
+	
+	<script type="text/javascript" src="//use.typekit.net/rxf2jpi.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	
+	<link rel="canonical" href="http://dataomaha.com/scoreboard/{{ today }}" />
+	<link rel="apple-touch-icon-precomposed" href="/media/scoreboard/pz-scoreboard.png" />
+	<link rel="shortcut icon" href="http://omaha.com/images/subsite/prepzone/favicon.ico" type="image/x-icon" />
+
+	<style type="text/css">
+		body { background: #333; font-family: sans-serif;  }
+		a { color: inherit; text-decoration: none; }
+		.orange { color: #b95630; }
+		.lower { text-transform: lowercase; }
+		.tk-chunk { font-weight: normal; }
+		h1.date { text-align: center; color: #fff; text-transform: uppercase; margin-bottom: 0; text-shadow: 0 1px 2px #000; }
+		h2 { text-transform: uppercase; background: #b95630; text-shadow: 0 1px 2px #333; text-transform: uppercase; padding: 0.5em; text-align: center; color: #fff; font-size: 100%; margin-bottom: 0; }
+		h2:first-child { margin-top: 0; }
+		div.buttons ul { margin: 1em 0 0 -40px; }
+		div.buttons li { background: #666; padding: 1em 0; color: #fff; font-size: 80%; list-style: none; margin: 0; float: left; width: 50%; text-align: center; text-shadow: 0 1px 2px #000; cursor: pointer; }
+		div.buttons li:hover { background: #888; }
+		div.buttons li.active { background: #777; }
+		div.games, div.search, div.nav, div.tweets, div.buttons { width: 60%; padding: 1em; margin: 0 auto; min-width: 300px; max-width: 600px; }
+		div.buttons { padding-bottom: 0; }
+		div.search { width: 60%; padding: 0; margin: 0 auto; min-width: 300px; max-width: 600px; }
+		div.search input { width: 100%; font-size: 75%; padding: 1em 0; margin: 0; border: 0; background: #333; color: #555; background: #333 url(/media/scoreboard/search-icon.png) center left no-repeat; text-indent: 2.2em; font-family: museo-sans, sans-serif; }
+		::-webkit-input-placeholder { color: #aaa; } :-moz-placeholder { color: #aaa; } ::-moz-placeholder { color: #aaa; } :-ms-input-placeholder { color: #aaa; }
+		
+		div.search input:focus { background: #eee url(/media/scoreboard/search-icon.png) center left no-repeat; text-indent: 2.2em; text-align: left; }
+		div.games { padding-top: 0; }
+		div.nav { color: #fff; text-align: center; font-size: 80%; text-transform: uppercase; margin-bottom: 2em; }
+		li.game { background: #fff; list-style: none; padding: 1em; margin: 0 0 0.5em 0; }
+		table { width: 100%; border-collapse: collapse; }
+		td.r { text-align: right; }
+		td.final { width: 8%; }
+		td.final a { color: #aaa; font-size: 80%; }
+		iframe { width: 100%; }
+		
+		@media screen and (max-width: 641px) and (orientation:portrait) {
+			div.games, div.search, div.nav, div.tweets, div.buttons { width: 90%; padding: 0; }
+			h1 { font-size: 130%; }
+			iframe { width: 300px; }
+		}
+		
+	
+	</style>
+
+	
+	
+	
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17420602-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	
+</head>
+
+
+
+
+<body>
+
+<h1 class="date tk-chunk">Prep Zone Scoreboard <br><span class="orange">{{ today|date:"l, N j" }}</span></h1>
+
+
+<div class="games section tk-museo-sans">
+
+	<li class="game">
+		<h1>Game id: {{ game_id }}</h1>
+		<p>{{ text }}</p>
+		
+	</li>
+	
+</div>
+
+	
+	
+
+<div class="nav tk-museo-sans">
+<a href="/scoreboard">&laquo; Back to scoreboard</a>
+</div>
+
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+		$.getJSON('http://owh.newsengin.com/tpweb/web/gateway.php?site=ow&tpl=PZ_Boxscore_mobile&ID={{ game_id }}&callback=?', function(data){
+		var game = data.divJS;
+		$('li.game').append(game);
+		})
+	
+});
+		
+</script>
+
+</html>

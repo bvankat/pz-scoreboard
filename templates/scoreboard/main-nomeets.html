@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<!-- Chartbeat -->
+	<script type='text/javascript'>var _sf_startpt=(new Date()).getTime()</script>
+	<!-- /Chartbeat -->
+
+	<title>{{ today|date:"l, N j" }} - Prep Zone Scoreboard - Live scores and updates from Nebraska and Iowa high school sports - NEPrepZone.com</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+	<meta property="og:title" content="NE Prep Zone Live Scoreobard" />
+	<meta property="og:description" content="Live scores and updates from Nebraska and Iowa high school sports." />
+	<meta property="og:image" content="/media/scoreboard/pz-scoreboard.png" />
+	<meta property="og:url" content="http://dataomaha.com/scoreboard" />
+	<meta property="og:type" content="website" />
+	
+	<script type="text/javascript" src="//use.typekit.net/rxf2jpi.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	
+	<link rel="canonical" href="http://dataomaha.com/scoreboard/{{ today }}" />
+	<link rel="apple-touch-icon-precomposed" href="/media/scoreboard/pz-scoreboard.png" />
+	<link rel="shortcut icon" href="http://omaha.com/images/subsite/prepzone/favicon.ico" type="image/x-icon" />
+
+	<style type="text/css">
+		body { background: #333; font-family: sans-serif;  }
+		a { color: inherit; text-decoration: none; }
+		.orange { color: #b95630; }
+		.lower { text-transform: lowercase; }
+		.tk-chunk { font-weight: normal; }
+		h1.date { text-align: center; color: #fff; text-transform: uppercase; margin-bottom: 0; text-shadow: 0 1px 2px #000; }
+		h2 { text-transform: uppercase; background: #b95630; text-shadow: 0 1px 2px #333; text-transform: uppercase; padding: 0.5em; text-align: center; color: #fff; font-size: 100%; margin-bottom: 0; }
+		h2:first-child { margin-top: 0; }
+		div.buttons ul { margin: 1em 0 0 -40px; }
+		div.buttons li { background: #666; padding: 1em 0; color: #fff; font-size: 80%; list-style: none; margin: 0; float: left; width: 50%; text-align: center; text-shadow: 0 1px 2px #000; cursor: pointer; }
+		div.buttons li:hover { background: #888; }
+		div.buttons li.active { background: #777; }
+		div.games, div.search, div.nav, div.tweets, div.buttons { width: 60%; padding: 1em; margin: 0 auto; min-width: 300px; max-width: 600px; }
+		div.buttons { padding-bottom: 0; }
+		div.search { width: 60%; padding: 0; margin: 0 auto; min-width: 300px; max-width: 600px; }
+		div.search input { width: 100%; font-size: 75%; padding: 1em 0; margin: 0; border: 0; background: #333; color: #555; background: #333 url(/media/scoreboard/search-icon.png) center left no-repeat; text-indent: 2.2em; font-family: museo-sans, sans-serif; }
+		::-webkit-input-placeholder { color: #aaa; } :-moz-placeholder { color: #aaa; } ::-moz-placeholder { color: #aaa; } :-ms-input-placeholder { color: #aaa; }
+		
+		div.search input:focus { background: #eee url(/media/scoreboard/search-icon.png) center left no-repeat; text-indent: 2.2em; text-align: left; }
+		div.games, div.tweets { padding-top: 0; }
+		div.nav { color: #fff; text-align: center; font-size: 80%; text-transform: uppercase; margin-bottom: 2em; }
+		div.nav p { margin: 0 0 1em 0; font-size: 65%; color: #aaa; }
+		li.game { background: #fff; list-style: none; padding: 1em; margin: 0 0 0.5em 0; }
+		table { width: 100%; border-collapse: collapse; }
+		td.r { text-align: right; }
+		td.final { width: 10%; }
+		td.final a { color: #aaa; font-size: 80%; }
+		iframe { width: 100%; }
+		td.final a.update img { width: 15px; }
+		td.final a.update:hover { background: #000; }
+		div.tweet { display: none; background: #eee; }
+		.games-count { color: #ccc; text-transform: lowercase; font-size: 80%; }
+		
+		@media screen and (max-width: 641px) and (orientation:portrait) {
+			div.games, div.search, div.nav, div.tweets, div.buttons { width: 90%; padding: 0; }
+			h1 { font-size: 130%; }
+			iframe { width: 300px; }
+			div.search input { padding: 1.5em 0; }
+			div.nav { padding-top: 1em; }
+		}
+		
+	
+	</style>
+
+	
+	
+	
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17420602-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+	
+	
+</head>
+
+
+
+
+<body>
+
+
+<!-- {{ games }} -->
+
+<!-- <p>Each game has:
+	<li>game_id (62207)</li>
+	<li>game_class (Class A)</li>
+	<li>final (0/1)</li>
+	<li>home_team</li>
+	<li>home_score</li>
+	<li>away_team</li>
+	<li>away_score</li>
+</p>
+
+-->
+
+
+
+
+<h1 class="date tk-chunk">Prep Zone Scoreboard <br><span class="orange">{{ today|date:"l, N j" }}</span></h1>
+<div class="buttons tk-museo-sans">
+	<ul>
+		<li class="scores active">Scores</li>
+		<li class="tweets">Tweets</li>
+		<div style="clear: both;"></div>
+	</ul>
+</div>
+
+<div class="search tk-museo-sans">
+
+	<input type="text" placeholder=" Team search" id="search">
+	<style id="search_style"></style>
+	
+</div>
+
+<div class="games section tk-museo-sans">
+</div>
+</div>
+	
+	<div class="tweets section">
+	
+		<h2 class="tk-chunk"><span class="lower">#nebpreps - Tweet live updates</span></h2>
+		<a class="twitter-timeline" href="https://twitter.com/search?q=%23nebpreps" data-widget-id="377556318292176896" data-chrome="noheader">Tweets about "#nebpreps"</a>
+		
+	
+	
+	</div>
+
+<div class="nav tk-museo-sans">
+<p></p>
+<a href="/scoreboard/{{ yesterday }}">&laquo; Previous day</a>&emsp; <span class="orange">{{ today|date:"N j" }}</span> &emsp;<a href="/scoreboard/{{ tomorrow }}">Next day &raquo; </a>
+</div>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+	<!-- Chartbeat -->
+		<script type='text/javascript'>
+    var _sf_async_config={};
+    /** CONFIGURATION START **/
+    _sf_async_config.uid = 52047;
+    _sf_async_config.domain = 'omaha.com';
+    _sf_async_config.useCanonical = true;
+    _sf_async_config.sections = 'Dataomaha'; 
+    _sf_async_config.authors = 'Change this to your Author name';    //CHANGE THIS
+    /** CONFIGURATION END **/
+    (function(){
+      function loadChartbeat() {
+        window._sf_endpt=(new Date()).getTime();
+        var e = document.createElement('script');
+        e.setAttribute('language', 'javascript');
+        e.setAttribute('type', 'text/javascript');
+        e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+        document.body.appendChild(e);
+      }
+      var oldonload = window.onload;
+      window.onload = (typeof window.onload != 'function') ?
+         loadChartbeat : function() { oldonload(); loadChartbeat(); };
+    })();
+</script>
+	
+	<!-- /Chartbeat -->
+
+</body>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+	
+	$.getJSON('http://owh.newsengin.com/tpweb/web/gateway.php?site=ow&tpl=PZ_Scroll_Scoreboard_mobile&u_date=' + {{ today|date:"Ymd" }} +'&callback=?', function(data) {
+	
+	today = data.dates[0]
+	
+	if (today.sport.length==0) {
+			$('div.games').append('<li class="game"><p>No games scheduled for {{ today|date:"F j" }}.</p></li>');
+			}
+		else {
+		
+	
+	for(i=0; i<today.sport.length; i++) {
+		
+	
+			
+				sport = today.sport[i];
+				
+				$('div.games').append('<h2 class="tk-chunk">' + sport.name + '</h2>');	
+				
+				for(a=0; a<sport.game.length; a++) {
+					this_game = sport.game[a];
+					if(this_game.final==1){ this_game.human_final = "<a href='http://neprepzone.com/section/PREPZONE21?site=ow&tpl=Boxscore&ID=" + this_game.game_id + "'>F</a>" } else { this_game.human_final = "<a href='https://twitter.com/share?text=@NEPrepzone'>&nbsp;</a>" };
+					$('div.games').append('<li class="game searchable ' + sport.name.toLowerCase() +'" data-index="' + this_game.home_team.toLowerCase() + ' ' + this_game.away_team.toLowerCase() + '"><table><tr><td>' + this_game.away_team + '</td><td class="r tk-chunk">' + this_game.away_score + '</td><td class="r final"></td></tr><td>' + this_game.home_team + '</td><td class="r tk-chunk">' + this_game.home_score + '</td><td class="r final tk-chunk">' + this_game.human_final + '</td></tr></table></li>');
+				}
+				
+			};
+	
+		}
+});
+
+	$('div.tweets').hide();
+	$('div.buttons li.scores').click( function() {
+		$('div.buttons li.tweets').removeClass("active");
+		$(this).addClass("active");
+		$('div.games').show();
+		$('div.tweets').hide();
+		});
+
+	$('div.buttons li.tweets').click( function() {
+		$('div.buttons li.scores').removeClass("active");
+		$(this).addClass("active");
+		$('div.tweets').show();
+		$('div.games').hide();
+		});
+
+//	$('div.games').on( "click", "h2", function() {
+//		var h2text = $(this).text().toLowerCase();
+//		console.log(h2text);
+//		$(this).toggleClass("gray");
+//		$('li.' + h2text).toggle();
+//		});
+
+	
+	
+
+
+});
+
+
+		var searchStyle = document.getElementById('search_style');
+		document.getElementById('search').addEventListener('input', function() {
+			if (!this.value) {
+				searchStyle.innerHTML = "";
+			return;
+		}
+			// look ma, no indexOf!
+			searchStyle.innerHTML = ".searchable:not([data-index*=\"" + this.value.toLowerCase() + "\"]) { display: none; }";
+			$('span.games-count').hide();
+	  		// beware of css injections!
+		});
+	
+
+
+
+</script>
+
+
+
+
+<script language="JavaScript" type="text/javascript" src="http://omaha.com/js/s_code.js"></script>
+<script language="JavaScript" type="text/javascript">
+s.Account="saxoomahaworldherald"
+s.cookieDomainPeriods="2"
+s.pageName="Section: Sports - Prep Zone,Prep Zone - Mobile Scoreboard,Section Overview"
+s.server="S260608AT1VW821"
+s.channel="Prepzone01"
+/* Traffic Variables */
+s.prop1="Section"
+/* E-commerce Variables */
+s.events="events"
+/* Hierarchy Variables */
+s.hier1="Sports - Prep Zone,Prep Zone - Mobile Scoreboard,Section Overview,No Profile"
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();
+if(s_code)document.write(s_code)
+</script>
+<noscript>
+<img src="http://grndsinchant.112.2O7.net/b/ss/grndsinchant/1/H.2--NS/0"height="1" width="1" border="0" alt="" /></noscript>
+
+
+
+</html>
