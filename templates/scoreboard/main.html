@@ -173,7 +173,7 @@
     _sf_async_config.uid = 52047;
     _sf_async_config.domain = 'omaha.com';
     _sf_async_config.useCanonical = true;
-    _sf_async_config.sections = 'Dataomaha'; 
+    _sf_async_config.sections = 'dataomaha'; 
     _sf_async_config.authors = 'Omaha.com';  
     /** CONFIGURATION END **/
     (function(){
@@ -217,29 +217,31 @@ $(document).ready(function() {
 	
 			
 				sport = today.sport[i];
+				console.log(sport);
 				
 				$('div.games').append('<h2 class="tk-chunk ' + sport.name.toLowerCase() + '">' + sport.name + '</h2>');	
 				
 				
 				// if this is a sport with meets instead of games
-				if (sport.name == "Wrestling" || sport.name == "Boys Swimming and Diving" || sport.name == "Girls Swimming and Diving" || sport.name == "Boys Golf" || sport.name=="Girls Golf" || sport.name == "Girls Tennis" || sport.name == "Boys Tennis" || sport.name == "Boys Track and Field" || sport.name == "Girls Track and Field") {
+				if (sport.name == "Wrestling" || sport.name == "Boys Swimming and Diving" || sport.name == "Girls Swimming and Diving" || sport.name == "Boys Golf" || sport.name=="Girls Golf" || sport.name == "Girls Tennis" || sport.name == "Boys Tennis" || sport.name == "Boys Track and Field" || sport.name == "Girls Track and Field" || sport.name == "Boys Cross Country" || sport.name == "Girls Cross Country") {
 				
-					// if the meets are golf meets
-					if (sport.name == "Boys Golf" || sport.name=="Girls Golf") {
+					// if the meets are golf meets or cross-country meets
+					if (sport.name == "Boys Golf" || sport.name=="Girls Golf" || sport.name == "Boys Cross Country" || sport.name == "Girls Cross Country") {
 					
 					for(a=0; a<sport.meet.length; a++) {
 						this_meet = sport.meet[a];
-						this_meet.results_link = '<tr><td class="meet-scoring"><a href="http://neprepzone.com/section/prepzone21?site=ow&tpl=PZ_Boxscore&ID=' + this_meet.meet_id + '" target="_blank">Click here for full scoring</a></td><td></td></tr>';
-						$('div.games').append('<li class="game searchable ' + sport.name.toLowerCase() +'" data-index="' + this_meet.meet_team_1.toLowerCase() + ' ' + this_meet.meet_team_2.toLowerCase() + '"><table><tr><td><b>' + this_meet.meet_name +'</b></td><td></td></tr>' + this_meet.results_link + '</table></li>');
+						console.log(this_meet);
+						this_meet.results_link = '<tr><td class="meet-scoring"><a href="http://neprepzone.com/scoreboard?site=ow&tpl=PZ_Boxscore&ID=' + this_meet.meet_id + '" target="_blank">Click here for full scoring</a></td><td></td></tr>';
+						$('div.games').append('<li class="game searchable ' + sport.name.toLowerCase() + '"><table><tr><td><b>' + this_meet.meet_name +'</b></td><td></td></tr>' + this_meet.results_link + '</table></li>');
 					} 
-				}  // golf loop end
+				}  // golf-cross-country loop end
 					
 					// if the meets aren't golf meets
 					else {
 						
 						for(a=0; a<sport.meet.length; a++) {
 							this_meet = sport.meet[a];
-							if(this_meet.meet_team_3){ this_meet.results_link = '<tr><td class="meet-scoring"><a href="http://neprepzone.com/section/prepzone21?site=ow&tpl=PZ_Boxscore&ID=' + this_meet.meet_id + '" target="_blank">Click here for full scoring</a></td><td></td></tr>' } else { this_meet.results_link = "" };
+							if(this_meet.meet_team_3){ this_meet.results_link = '<tr><td class="meet-scoring"><a href="http://neprepzone.com/scoreboard?site=ow&tpl=PZ_Boxscore&ID=' + this_meet.meet_id + '" target="_blank">Click here for full scoring</a></td><td></td></tr>' } else { this_meet.results_link = "" };
 							$('div.games').append('<li class="game searchable ' + sport.name.toLowerCase() +'" data-index="' + this_meet.meet_team_1.toLowerCase() + ' ' + this_meet.meet_team_2.toLowerCase() + '"><table><tr><td><b>' + this_meet.meet_name +'</b></td><td></td></tr><tr><td>' + this_meet.meet_team_1 + '</td><td class="r tk-chunk">' + this_meet.meet_team_1_score + '</td></tr><tr><td>' + this_meet.meet_team_2 + '</td><td class="r tk-chunk">' + this_meet.meet_team_2_score + '</td></tr>' + this_meet.results_link + '</table></li>');
 						} 
 					}
@@ -250,7 +252,7 @@ $(document).ready(function() {
 								
 					for(a=0; a<sport.game.length; a++) {
 						this_game = sport.game[a];
-						if(this_game.final==1){ this_game.human_final = "<a href='http://neprepzone.com/section/PREPZONE21?site=ow&tpl=Boxscore&ID=" + this_game.game_id + "'>F</a>" } else { this_game.human_final = "<a href='https://twitter.com/share?text=@NEPrepzone'>&nbsp;</a>" };
+						if(this_game.final==1){ this_game.human_final = "<a href='http://neprepzone.com/scoreboard?site=ow&tpl=Boxscore&ID=" + this_game.game_id + "'>F</a>" } else { this_game.human_final = "<a href='https://twitter.com/share?text=@NEPrepzone'>&nbsp;</a>" };
 						$('div.games').append('<li class="game searchable ' + sport.name.toLowerCase() +'" data-index="' + this_game.home_team.toLowerCase() + ' ' + this_game.away_team.toLowerCase() + '"><table><tr><td>' + this_game.away_team + '</td><td class="r tk-chunk">' + this_game.away_score + '</td><td class="r final"></td></tr><td>' + this_game.home_team + '</td><td class="r tk-chunk">' + this_game.home_score + '</td><td class="r final tk-chunk">' + this_game.human_final + '</td></tr></table></li>');
 					}
 				} // game loop end
