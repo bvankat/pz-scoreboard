@@ -29,10 +29,11 @@
 		body { background: #333; font-family: sans-serif;  }
 		a { color: inherit; text-decoration: none; }
 		.orange { color: #b95630; }
+		h2.gray { background: #aaa; }
 		.lower { text-transform: lowercase; }
 		.tk-chunk { font-weight: normal; }
 		h1.date { text-align: center; color: #fff; text-transform: uppercase; margin-bottom: 0; text-shadow: 0 1px 2px #000; }
-		h2 { text-transform: uppercase; background: #b95630; text-shadow: 0 1px 2px #333; text-transform: uppercase; padding: 0.5em; text-align: center; color: #fff; font-size: 100%; margin-bottom: 0; }
+		h2 { text-transform: uppercase; background: #b95630; text-shadow: 0 1px 2px #333; text-transform: uppercase; padding: 0.5em; text-align: center; color: #fff; font-size: 100%; margin-bottom: 0; cursor: pointer; }
 		h2:first-child { margin-top: 0; }
 		div.buttons ul { margin: 1em 0 0 -40px; }
 		div.buttons li { background: #666; padding: 1em 0; color: #fff; font-size: 80%; list-style: none; margin: 0; float: left; width: 50%; text-align: center; text-shadow: 0 1px 2px #000; cursor: pointer; }
@@ -129,6 +130,8 @@
 
 <h1 class="date tk-chunk">Prep Zone Scoreboard <br><span class="orange">{{ today|date:"l, N j" }}</span></h1>
 <!-- {{ today }} -->
+
+
 <div class="buttons tk-museo-sans">
 	<ul>
 		<li class="scores active">Scores</li>
@@ -217,7 +220,7 @@ $(document).ready(function() {
 	
 			
 				sport = today.sport[i];
-				console.log(sport);
+				console.log(sport.name);
 				
 				$('div.games').append('<h2 class="tk-chunk ' + sport.name.toLowerCase() + '">' + sport.name + '</h2>');	
 				
@@ -230,7 +233,6 @@ $(document).ready(function() {
 					
 					for(a=0; a<sport.meet.length; a++) {
 						this_meet = sport.meet[a];
-						console.log(this_meet);
 						this_meet.results_link = '<tr><td class="meet-scoring"><a href="http://neprepzone.com/scoreboard?site=ow&tpl=PZ_Boxscore&ID=' + this_meet.meet_id + '" target="_blank">Click here for full scoring</a></td><td></td></tr>';
 						$('div.games').append('<li class="game searchable ' + sport.name.toLowerCase() + '"><table><tr><td><b>' + this_meet.meet_name +'</b></td><td></td></tr>' + this_meet.results_link + '</table></li>');
 					} 
@@ -278,12 +280,13 @@ $(document).ready(function() {
 		$('div.games').hide();
 		});
 
-//	$('div.games').on( "click", "h2", function() {
-//		var h2text = $(this).text().toLowerCase();
-//		console.log(h2text);
-//		$(this).toggleClass("gray");
-//		$('li.' + h2text).toggle();
-//		});
+$('div.games').on( "click", "h2", function() {
+		var h2text = $(this).text().toLowerCase();
+		console.log(h2text);
+		$(this).toggleClass("gray");
+		$('li.' + h2text).toggle();
+//		$('#search').hide();
+		});
 
 	
 	
